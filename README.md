@@ -1,2 +1,4 @@
-redmine_pretend
+Pretend plugin for Redmine
 ===============
+
+

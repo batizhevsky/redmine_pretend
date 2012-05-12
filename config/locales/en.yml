@@ -2,3 +2,4 @@
 en:
   button_pretend: 'Pretend this user'
   button_unpretend: 'Unpretend'
+  pretend_message: 'You in pretend mode. In real you are: '
