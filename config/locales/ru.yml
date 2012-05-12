@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 # English strings go here for Rails i18n
+=======
+
+>>>>>>> 1e685d62eae326eeb1c2feab3daa9c89ec158661
 ru:
   button_pretend: 'Притвориться этим пользователем'
   button_unpretend: 'Перестать притворяться'
