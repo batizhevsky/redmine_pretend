@@ -1,8 +1,4 @@
-# English strings go here for Rails i18n
-<<<<<<< HEAD
+
 ru:
-=======
-en:
->>>>>>> bb4233556edd0a353c6fc5397b0b373aa08d4625
   button_pretend: 'Притвориться этим пользователем'
   button_unpretend: 'Перестать претворяться'
