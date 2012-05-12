@@ -1,0 +1,4 @@
+# English strings go here for Rails i18n
+en:
+  button_pretend: 'Притвориться этим пользователем'
+  button_unpretend: 'Перестать претворяться'

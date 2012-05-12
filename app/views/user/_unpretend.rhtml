@@ -1,0 +1,2 @@
+<%= link_to(l(:button_unpretend), {:controller => 'application', :action => 'stop_pretend'}, :class => 'icon') if session[:real_user_id] && session[:real_user_id] != User.current  %>
+
