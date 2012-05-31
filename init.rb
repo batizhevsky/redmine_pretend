@@ -11,13 +11,13 @@ Redmine::Plugin.register :redmine_pretend do
   name 'Redmine Pretend plugin'
   author 'Leonid Batizhevsky'
   description 'Plugin to pretend selected user'
-  version '0.0.1'
+  version '0.0.2'
   url 'https://github.com/leonko/redmine_pretend'
 
   requires_redmine :version_or_higher => '0.9.0'
 end
 
-#Dispatcher.to_prepare do
-  #ApplicationController.send(:include, Patches::ApplicationControllerPatch)
-  #AdminController.send(:include, Patches::AdminControllerPatch)
-#end
+Dispatcher.to_prepare do
+  ApplicationController.send(:include, ApplicationControllerPatch)
+  AdminController.send(:include, AdminControllerPatch)
+end
