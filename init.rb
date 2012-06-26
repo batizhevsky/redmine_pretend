@@ -1,8 +1,6 @@
 require 'redmine'
 require 'dispatcher'
 
-require 'application_controller_patch'
-require 'admin_controller_patch'
 require_dependency 'redmine_pretend/hooks'
 
 RAILS_DEFAULT_LOGGER.info 'Starting Pretend plugin for RedMine'
@@ -18,6 +16,11 @@ Redmine::Plugin.register :redmine_pretend do
 end
 
 Dispatcher.to_prepare do
-  ApplicationController.send(:include, ApplicationControllerPatch)
-  AdminController.send(:include, AdminControllerPatch)
+  require_dependency 'application_controller'
+  require_dependency 'admin_controller'
+  require_dependency 'user'
+
+  ApplicationController.send(:include, PretendPatches::ApplicationControllerPatch)
+  AdminController.send(:include, PretendPatches::AdminControllerPatch)
+  User.send(:include, PretendPatches::UserPatch)
 end

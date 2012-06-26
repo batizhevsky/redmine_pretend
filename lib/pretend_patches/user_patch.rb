@@ -1,5 +1,4 @@
- require_dependency 'user'
-
+module PretendPatches
  module UserPatch
   def self.included(base)
     base.extend(ClassMethods)
@@ -20,6 +19,4 @@
     end
   end
  end
-
-User.send(:include, UserPatch)
-
+end
