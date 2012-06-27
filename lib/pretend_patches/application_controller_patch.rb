@@ -1,5 +1,4 @@
- require_dependency 'application_controller'
-
+module PretendPatches
  module ApplicationControllerPatch
   def self.included(base)
     base.extend(ClassMethods)
@@ -27,6 +26,4 @@
 
   end
  end
-
-ApplicationController.send(:include, ApplicationControllerPatch)
-
+end

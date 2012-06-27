@@ -1,12 +1,9 @@
- require_dependency 'admin_controller'
-
+module PretendPatches
  module AdminControllerPatch
   def self.included(base)
     base.extend(ClassMethods)
     base.send(:include, InstanceMethods)
 
-
-          # Same as typing in the class
      base.class_eval do
        unloadable # Send unloadable so it will not be unloaded in development
      end
@@ -25,8 +22,6 @@
       redirect_to :back
     end
 
-
   end
  end
-
- AdminController.send(:include, AdminControllerPatch)
+end
