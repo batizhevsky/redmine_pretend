@@ -1,26 +1,30 @@
 require 'redmine'
-require 'dispatcher'
+require 'dispatcher' unless Rails::VERSION::MAJOR >= 3
 
 require_dependency 'redmine_pretend/hooks'
 
-RAILS_DEFAULT_LOGGER.info 'Starting Pretend plugin for RedMine'
+if Rails::VERSION::MAJOR >= 3
+  Rails.logger.info 'Starting Pretend plugin for RedMine'
+else
+  RAILS_DEFAULT_LOGGER.info 'Starting Pretend plugin for RedMine'
+end
 
 Redmine::Plugin.register :redmine_pretend do
   name 'Redmine Pretend plugin'
   author 'Leonid Batizhevsky'
   description 'Plugin to pretend selected user'
-  version '0.0.2'
+  version '0.0.3'
   url 'https://github.com/leonko/redmine_pretend'
 
   requires_redmine :version_or_higher => '0.9.0'
 end
 
-Dispatcher.to_prepare do
-  require_dependency 'application_controller'
-  require_dependency 'admin_controller'
-  require_dependency 'user'
-
-  ApplicationController.send(:include, PretendPatches::ApplicationControllerPatch)
-  AdminController.send(:include, PretendPatches::AdminControllerPatch)
-  User.send(:include, PretendPatches::UserPatch)
+if Rails::VERSION::MAJOR >= 3
+  ActionDispatch::Callbacks.to_prepare do
+    require_dependency 'redmine_pretend/application_controller_patch'
+  end
+else
+  Dispatcher.to_prepare do
+    require_dependency  'redmine_pretend/application_controller_patch'
+  end
 end

@@ -1,7 +1,0 @@
-<% if session[:real_user_id] && User.find(session[:real_user_id]) != User.current %>
-  <div class="flash error">
-    <%= l(:pretend_message) %>
-    <%= User.find(session[:real_user_id])%>
-    <%= link_to(l(:button_unpretend), {:controller => 'application', :action => 'stop_pretend'}, :class => 'icon') %>
-  </div>
-<% end %>
