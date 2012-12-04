@@ -1,5 +1,4 @@
 require 'redmine'
-require 'dispatcher' unless Rails::VERSION::MAJOR >= 3
 
 require_dependency 'redmine_pretend/hooks'
 
@@ -19,12 +18,14 @@ Redmine::Plugin.register :redmine_pretend do
   requires_redmine :version_or_higher => '0.9.0'
 end
 
-if Rails::VERSION::MAJOR >= 3
-  ActionDispatch::Callbacks.to_prepare do
-    require_dependency 'redmine_pretend/application_controller_patch'
-  end
+                                                     
+if Rails::VERSION::MAJOR < 3                         
+  require 'dispatcher'                               
+  prepare = Dispatcher                               
 else
-  Dispatcher.to_prepare do
-    require_dependency  'redmine_pretend/application_controller_patch'
-  end
+  prepare = ActionDispatch::Callbacks
+end
+
+prepare.to_prepare do
+  require_dependency 'redmine_pretend/application_controller_patch'
 end
