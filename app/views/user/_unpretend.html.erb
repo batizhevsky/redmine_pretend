@@ -1,0 +1,6 @@
+<% if session[:real_user_id] %>
+  <div class="flash error">
+    <%= l(:pretend_message) %> <%= User.find_by_id(User.active.find(session[:real_user_id])) %>
+    <%= link_to l(:button_unpretend), unpretend_path, :class => 'icon' %>
+  </div>
+<% end %>
