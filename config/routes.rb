@@ -1,7 +1,7 @@
 if Rails::VERSION::MAJOR >= 3
   RedmineApp::Application.routes.draw do
-    match 'admin/pretend_to/:id' => 'application#pretend_to', :as => 'pretend_to'
-    match 'admin/unpretend' => 'application#unpretend', :as => 'unpretend'
+    post 'admin/pretend_to/:id' => 'application#pretend_to', :as => 'pretend_to'
+    post 'admin/unpretend' => 'application#unpretend', :as => 'unpretend'
   end
 else
   ActionController::Routing::Routes.draw do |map|
