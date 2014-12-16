@@ -1,0 +1,5 @@
+# Turkish strings go here for Rails i18n
+tr:
+  button_pretend: 'Bu kullanıcı gibi kullan'
+  button_unpretend: 'Gibi kullanmaktan vazgeç'
+  pretend_message: 'Başkası gibi kullanıyorsun. Gerçek kullanıcın: '
