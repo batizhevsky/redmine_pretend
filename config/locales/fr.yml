@@ -1,0 +1,5 @@
+# French strings go here for Rails i18n
+fr:
+  button_pretend: 'Se faire passer pour cet utilisateur'
+  button_unpretend: 'Utiliser de nouveau votre véritable identifiant'
+  pretend_message: "Vous utilisez actuellement le compte d'un autre utilisateur. Votre véritable identifiant est : "
