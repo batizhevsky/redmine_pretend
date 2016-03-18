@@ -8,6 +8,8 @@ module PretendPatches
 
       base.class_eval do
         unloadable # Send unloadable so it will not be unloaded in development
+        helper :pretend
+        include PretendHelper
       end
     end
 

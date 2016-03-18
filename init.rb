@@ -8,14 +8,10 @@ Redmine::Plugin.register :redmine_pretend do
   name 'Redmine Pretend plugin'
   author 'Leonid Batizhevsky'
   description 'Plugin to pretend selected user'
-  version '2.0.0'
+  version '2.0.1'
   url 'https://github.com/leonko/redmine_pretend'
 
   requires_redmine :version_or_higher => '2.0.0'
-end
-
-ActionDispatch::Reloader.to_prepare do
-  ApplicationHelper.send :include, PretendHelper
 end
 
 ActionDispatch::Callbacks.to_prepare do
