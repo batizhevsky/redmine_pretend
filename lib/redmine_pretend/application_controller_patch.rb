@@ -28,7 +28,7 @@ module PretendPatches
           set_user(user)
         end
 
-        redirect_to :back
+        redirect_to user_path(user)
       end
 
       def unpretend
