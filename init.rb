@@ -1,6 +1,7 @@
 require 'redmine'
 
 require_dependency 'redmine_pretend/hooks'
+require_dependency 'redmine_pretend/application_controller_patch'
 
 Rails.logger.info 'Starting Pretend plugin for RedMine'
 
