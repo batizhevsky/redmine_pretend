@@ -1,7 +1,11 @@
-require 'redmine'
+require 'redmine_pretend'
 
-require_dependency 'redmine_pretend/hooks'
-require_dependency 'redmine_pretend/application_controller_patch'
+ActionDispatch::Callbacks.to_prepare do
+  require_dependency 'redmine_pretend/hooks'
+  require_dependency 'redmine_pretend/application_controller_patch'
+end
+
+require File.join(File.dirname(__FILE__), 'app/helpers/pretend_helper.rb')
 
 Rails.logger.info 'Starting Pretend plugin for RedMine'
 

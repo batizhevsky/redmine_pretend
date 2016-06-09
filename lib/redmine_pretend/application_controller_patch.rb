@@ -8,8 +8,7 @@ module PretendPatches
 
       base.class_eval do
         unloadable # Send unloadable so it will not be unloaded in development
-        helper :pretend
-        include PretendHelper
+        helper PretendHelper
       end
     end
 
@@ -20,7 +19,7 @@ module PretendPatches
       def pretend_to
         render_403 unless can_pretend?
 
-        if not_pretended?
+        if not pretending?
           remember_current_user
           user = User.find(params[:id])
 
@@ -32,7 +31,7 @@ module PretendPatches
       end
 
       def unpretend
-        if real_user
+        if pretending?
           logger.info "#{ session[:real_user_id] } stop pretend"
           set_user(real_user)
           reset_pretent_storage
@@ -44,15 +43,15 @@ module PretendPatches
         @real_user ||= User.find_by_id(User.active.find(session[:real_user_id]))
       end
 
+      def pretending?
+        session[:real_user_id].present?
+      end
+
       private
 
       def set_user(user)
         User.current = user
         start_user_session(user)
-      end
-
-      def not_pretended?
-        !session[:real_user_id]
       end
 
       def can_pretend?
@@ -64,6 +63,7 @@ module PretendPatches
       end
 
       def reset_pretent_storage
+        @real_user = nil
         session[:real_user_id] = nil
       end
     end
