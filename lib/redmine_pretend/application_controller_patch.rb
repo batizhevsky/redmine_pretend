@@ -9,6 +9,7 @@ module PretendPatches
       base.class_eval do
         unloadable # Send unloadable so it will not be unloaded in development
         helper PretendHelper
+        helper_method :real_user
       end
     end
 
