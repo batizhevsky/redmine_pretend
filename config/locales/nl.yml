@@ -1,0 +1,5 @@
+# Dutch strings go here for Rails i18n
+nl:
+  button_pretend: 'Doe jezelf voor als deze gebruiker'
+  button_unpretend: 'Ga terug naar het échte leven'
+  pretend_message: 'Je bevindt je in de doe-jezelf-voor toestand. In het échte leven ben jij: '
