@@ -1,0 +1,5 @@
+# Chinese (China) translations for Ruby on Rails
+zh:
+  button_pretend: '扮演成该用户'
+  button_unpretend: '结束'
+  pretend_message: '您正处于扮演模式，实际上，您是： '
