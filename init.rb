@@ -12,7 +12,7 @@ Redmine::Plugin.register :redmine_pretend do
   requires_redmine :version_or_higher => '2.0.0'
 end
 
-ActiveSupport::Reloader.to_prepare do
+Rails.version < '5.2' ? ActionDispatch::Callbacks.to_prepare : ActiveSupport::Reloader.to_prepare do
   require_dependency 'redmine_pretend/hooks'
   require_dependency 'redmine_pretend/application_controller_patch'
 end
