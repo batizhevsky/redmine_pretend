@@ -18,12 +18,13 @@ module PretendPatches
 
     module InstanceMethods
       def pretend_to
-        render_403 unless can_pretend?
+        return render_403 unless can_pretend?
 
-        if not pretending?
-          remember_current_user
+        unless pretending?
           user = User.find(params[:id])
+          return render_403 if user.admin?
 
+          remember_current_user
           logger.info "#{ User.current } is pretend as #{user}"
           set_user(user)
         end
