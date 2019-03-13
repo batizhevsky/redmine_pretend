@@ -1,12 +1,5 @@
 require 'redmine_pretend'
 
-ActionDispatch::Callbacks.to_prepare do
-  require_dependency 'redmine_pretend/hooks'
-  require_dependency 'redmine_pretend/application_controller_patch'
-end
-
-require File.join(File.dirname(__FILE__), 'app/helpers/pretend_helper.rb')
-
 Rails.logger.info 'Starting Pretend plugin for RedMine'
 
 Redmine::Plugin.register :redmine_pretend do
@@ -19,6 +12,7 @@ Redmine::Plugin.register :redmine_pretend do
   requires_redmine :version_or_higher => '2.0.0'
 end
 
-ActionDispatch::Callbacks.to_prepare do
+ActiveSupport::Reloader.to_prepare do
+  require_dependency 'redmine_pretend/hooks'
   require_dependency 'redmine_pretend/application_controller_patch'
 end
