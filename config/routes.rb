@@ -1,4 +1,4 @@
 RedmineApp::Application.routes.draw do
-  post 'admin/pretend_to/:id' => 'application#pretend_to', :as => 'pretend_to'
-  post 'admin/unpretend' => 'application#unpretend', :as => 'unpretend'
+  post 'admin/pretend_to/:id' => 'pretend#create', :as => 'pretend_to'
+  post 'admin/unpretend' => 'pretend#delete', :as => 'unpretend'
 end
