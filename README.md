@@ -10,7 +10,7 @@ If you has admin role you may go to user account page and press "Pretend" button
 Now you pretended selected user.
 When you tired you can always back to your account pressed  "stop pretending" in the top of page.
 
-Support 2.x, 3.x
+Supports redmine >= 4.0 
 
 Install
 =======
