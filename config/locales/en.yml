@@ -1,5 +1,5 @@
 # English strings go here for Rails i18n
 en:
-  button_pretend: 'Pretend to this user'
+  button_pretend: 'Pretend to be this user'
   button_unpretend: 'UNDO'
   pretend_message: 'You are in PRETEND mode. In real life, you are: '

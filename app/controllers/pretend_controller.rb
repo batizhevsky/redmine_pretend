@@ -2,7 +2,7 @@ class PretendController < ApplicationController
   def create
     render_403 unless can_pretend?
 
-    if not pretending?
+    unless pretending?
       remember_current_user
       user = User.find(params[:id])
 
